@@ -1,3 +1,4 @@
+import java.lang.String;
 
 public class Patient extends Problem{
 
@@ -5,6 +6,13 @@ public class Patient extends Problem{
 	private String address;
 	private String phoneNumber;
 	private Problem prob;
+	
+	public Patient(){
+		name = "";
+		address = "";
+		phoneNumber = "";
+		prob = new Problem();
+	}
 	
 	public void makeProblem(){
 		

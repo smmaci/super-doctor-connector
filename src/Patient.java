@@ -14,6 +14,13 @@ public class Patient extends Problem{
 		prob = new Problem();
 	}
 	
+	public Patient(String n, String a, String pn, Problem p) {
+		name = n;
+		address = a;
+		phoneNumber = pn;
+		prob = p;
+	}
+	
 	public void makeProblem(){
 		
 	}

@@ -25,7 +25,7 @@ public class Problem {
 	}
 	
 	public void clearSymptoms(){
-		
+		symptoms = new String[5];
 	}
 	
 }

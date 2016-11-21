@@ -3,7 +3,7 @@ import java.util.*;
 
 public class DoctorMap {
 	
-	private HashMap<String, Doctor> map;
+	protected HashMap<String, Doctor> map;
 	
 	public DoctorMap() {
 		map = new HashMap<String, Doctor>();

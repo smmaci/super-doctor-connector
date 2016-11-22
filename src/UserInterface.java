@@ -2,9 +2,11 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class UI {
-	public UI(){
+public class UserInterface {
+	public UserInterface(){
 		//Set up main frame
 		JFrame main = new JFrame("Super Doctor Connector");
 		main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,13 +35,22 @@ public class UI {
 	 */
 	private void createPatientPanel(JPanel patientPanel){
 		//Creating the combo box for affected areas
-		String[] areas = {"Skin", "Heart", "Chest", "Neck", "Throat", "Stomach"};
+		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach"};
 		JComboBox areasCB = new JComboBox(areas);
 		
 		patientPanel.add(new JLabel("I have a problem with my:"));
 		patientPanel.add(areasCB);
 		patientPanel.add(new JTextField());
-		patientPanel.add(new JButton("Find a doctor now!"));
+		JButton findDoctor = new JButton("Find a Doctor Now!");
+	    
+		findDoctor.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		DoctorMap dm = new DoctorMap();
+	    		System.out.println(dm.map.get(areasCB.getSelectedItem()).toString());
+	      }
+	    });
+		
+		patientPanel.add(findDoctor);
 		patientPanel.add(new JLabel("insert dr diagnosis here"));
 	}
 	

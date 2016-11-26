@@ -36,7 +36,7 @@ public class UserInterface {
 	private void createPatientPanel(JPanel patientPanel){
 		//Creating the combo box for affected areas
 		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach"};
-		JComboBox areasCB = new JComboBox(areas);
+		final JComboBox areasCB = new JComboBox(areas);
 		
 		patientPanel.add(new JLabel("I have a problem with my:"));
 		patientPanel.add(areasCB);
@@ -46,7 +46,7 @@ public class UserInterface {
 		findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		DoctorMap dm = new DoctorMap();
-	    		System.out.println(dm.map.get(areasCB.getSelectedItem()).toString());
+	    		System.out.println(dm.map.get(areasCB.getSelectedItem().toString().toLowerCase()));
 	      }
 	    });
 		

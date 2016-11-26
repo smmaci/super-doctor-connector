@@ -7,7 +7,7 @@ public class Runner {
 		
 		DoctorMap dm = new DoctorMap();
 		UserInterface main = new UserInterface();
-		System.out.println(dm.map.get("Leg").toString());
+		//System.out.println(dm.map.get("Leg").toString());
 	}
 	
 }

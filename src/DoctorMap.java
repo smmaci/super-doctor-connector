@@ -1,5 +1,6 @@
 import java.lang.String;
 import java.util.*;
+import java.io.*;
 
 public class DoctorMap {
 	
@@ -8,6 +9,7 @@ public class DoctorMap {
 	public DoctorMap() {
 		map = new HashMap<String, Doctor>();
 		
+		/*
 		map.put("Leg", new Doctor("John", "123 Leg Rd", "555-555-5555", "leg"));
 		map.put("Arm", new Doctor("James", "456 Arm Ave", "111-111-1111", "arm"));
 		map.put("Head", new Doctor("Jim", "789 Head St", "222-222-2222", "head"));
@@ -17,8 +19,32 @@ public class DoctorMap {
 		map.put("Neck", new Doctor("Frodo", "321 Neck St", "842-462-964", "neck"));
 		map.put("Throat", new Doctor("Gandalf", "394 Throat Blvd", "567-523-975", "throat"));
 		map.put("Stomach", new Doctor("Harry Potter", "953 Stomach St", "123-345-678", "stomach"));
+		*/
+		
+		String name, addr, phone, field;
+		
+		try
+		{
+			BufferedReader bfr = new BufferedReader(new FileReader("doctors.txt"));
+			String line = bfr.readLine();
+			while (line != null) 
+			{
+				StringTokenizer tokens = new StringTokenizer(line,";");
+				name = tokens.nextToken();
+				addr = tokens.nextToken();
+				phone = tokens.nextToken();
+				field = tokens.nextToken().toLowerCase();
 
-
+				map.put(field, new Doctor(name, addr, phone, field));
+				
+				line = bfr.readLine();
+			}
+			bfr.close();
+		}
+		catch (Exception ex)
+		{
+			System.err.println("ERROR: " + ex.getMessage());
+		}
 
 	}
 

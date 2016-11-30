@@ -7,3 +7,6 @@ Bilbo Baggins;264 Chest Ave;735-132-7777;chest
 Frodo;321 Neck St;842-462-9647;neck
 Gandalf;394 Throat Blvd;567-523-9752;throat
 Harry Potter;953 Stomach St;123-345-6781;stomach
+Timmeh TimTim;953 Stomach St;123-345-6781;lungs
+test;test St.;123-456-7890;Chest
+test2;test2 st.;123-456-7890;Neck

@@ -34,7 +34,6 @@ public class DoctorMap {
 				addr = tokens.nextToken();
 				phone = tokens.nextToken();
 				field = tokens.nextToken().toLowerCase();
-
 				map.put(field, new Doctor(name, addr, phone, field));
 				
 				line = bfr.readLine();
@@ -45,7 +44,26 @@ public class DoctorMap {
 		{
 			System.err.println("ERROR: " + ex.getMessage());
 		}
+		
 
 	}
+	
+	public void addDoctor(String name, String address, String number, String field){
+		BufferedWriter bfw = null;
+		try {
+			bfw = new BufferedWriter(new FileWriter("doctors.txt", true));
+			bfw.write("\n" + name + ";" + address + ";" + number + ";" + field);
+		} catch (IOException e) {
+			System.err.println("ERROR: " + e.getMessage());
+		}
+    	finally {
+    		try {
+    			// Close the writer regardless of what happens...
+    			bfw.close();
+    		} 
+    		catch (Exception e) {
+    		}
+    	}        
+	} 
 
 }

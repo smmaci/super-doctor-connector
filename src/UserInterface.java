@@ -4,6 +4,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class UserInterface {
 	public UserInterface(){
@@ -17,7 +18,7 @@ public class UserInterface {
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
-		JPanel doctorPanel = new JPanel();
+		JPanel doctorPanel = new JPanel(new GridLayout(10,1));
 		createDoctorPanel(doctorPanel);
 		
 		//Set up tabbed pane
@@ -35,7 +36,9 @@ public class UserInterface {
 	 */
 	private void createPatientPanel(JPanel patientPanel){
 		//Creating the combo box for affected areas
-		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach"};
+		
+		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
+		
 		final JComboBox areasCB = new JComboBox(areas);
 		
 		patientPanel.add(new JLabel("I have a problem with my:"));
@@ -56,10 +59,38 @@ public class UserInterface {
 	
 	private void createDoctorPanel(JPanel doctorPanel) {
 		String[] specialties = {"Skin", "Heart", "Chest", "Neck", "Throat", "Stomach"};
-		JComboBox specCB = new JComboBox(specialties);
+		final JComboBox specCB = new JComboBox(specialties);
+		final JTextField nameField = new JTextField();
+		final JTextField addressField = new JTextField();
+		final JTextField phoneField = new JTextField();
+		final JTextField specialityField = new JTextField();
+
 		
+		
+		doctorPanel.add(new JLabel("Name:"));
+		doctorPanel.add(nameField);
+		doctorPanel.add(new JLabel("Address:"));
+		doctorPanel.add(addressField);
+		doctorPanel.add(new JLabel("Phone Number:"));
+		doctorPanel.add(phoneField);
 		doctorPanel.add(new JLabel("My specialty is:"));
 		doctorPanel.add(specCB);
+		
+		//doctorPanel.add(new JTextField());
+		
+		JButton addDoctor = new JButton("Add Doctor");
+		
+		addDoctor.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		DoctorMap dm = new DoctorMap();
+	    		dm.addDoctor(nameField.getText(), addressField.getText(), phoneField.getText(), specCB.getSelectedItem().toString());
+	      }
+	    });
+		
+
+		doctorPanel.add(addDoctor);
+
 	}
+	
 	
 }

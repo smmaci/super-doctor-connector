@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class UserInterface {
+	
+	String[] patientInfo = new String [2];
+	
 	public UserInterface(){
 		//Set up main frame
 		JFrame main = new JFrame("Super Doctor Connector");
@@ -14,7 +17,7 @@ public class UserInterface {
 		main.setSize(500, 500);
 		
 		//Set up patient panel
-		JPanel patientPanel = new JPanel(new GridLayout(2,1));
+		JPanel patientPanel = new JPanel(new GridLayout(3,1));
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
@@ -41,7 +44,8 @@ public class UserInterface {
 	 */
 	private void createPatientPanel(JPanel patientPanel){
 		JPanel upper = new JPanel(new GridLayout(8,1));
-		JPanel lower = new JPanel(new GridLayout(2,1));
+		JPanel middle = new JPanel(new BorderLayout());
+		JPanel lower = new JPanel(new BorderLayout());
 		
 		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
 		String[] states = {"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", 
@@ -53,13 +57,16 @@ public class UserInterface {
 		final JComboBox stateCB = new JComboBox(states);
 		final JComboBox areasCB = new JComboBox(areas);
 		final JTextField zipField = new JTextField();
-		final JTextField doc = new JTextField();
+		final JTextField symptomsField = new JTextField();
+		final JTextArea doc = new JTextArea();
 		doc.setEditable(false);
+		final JTextArea diagnosis = new JTextArea();
+		diagnosis.setEditable(false);
 		
 		upper.add(new JLabel("I have a problem with my:"));
 		upper.add(areasCB);
 		upper.add(new JLabel("Please describe your sympoms below"));
-		upper.add(new JTextField());
+		upper.add(symptomsField);
 		upper.add(new JLabel("State:"));
 		upper.add(stateCB);
 		upper.add(new JLabel("Zip Code:"));
@@ -69,6 +76,7 @@ public class UserInterface {
 	    
 		findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
+
 	    		DoctorList dl = new DoctorList();
 	    		//System.out.println(dl);
 	    		
@@ -83,11 +91,17 @@ public class UserInterface {
 	    			doc.setText("No Doctors Found");
 	    		}
 	    		
+	    		setPatientInfo(desiredField, symptomsField.getText());
+
+
 	      }
 	    });
 		
-		lower.add(findDoctor);
-		lower.add(doc);
+		middle.add(findDoctor, BorderLayout.NORTH);
+		middle.add(doc, BorderLayout.CENTER);
+		lower.add(new JLabel("Diagnosis:"), BorderLayout.NORTH);
+		lower.add(diagnosis, BorderLayout.CENTER);
+		patientPanel.add(middle);
 		patientPanel.add(lower);
 	}
 	
@@ -145,8 +159,42 @@ public class UserInterface {
 
 	}
 	
-	private void createDoctorDiagnosisPanel(JPanel doctorDiagnosis) {
+private void createDoctorDiagnosisPanel(final JPanel doctorDiagnosis) {
 		
+		final JTextField diagnosis = new JTextField();
+
+		
+		JButton getPatient = new JButton("Get Patient");
+		final JTextField patIssue = new JTextField();
+		patIssue.setEditable(false);
+		final JTextField patSymp = new JTextField();
+		patSymp.setEditable(false);
+
+		
+		getPatient.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		patIssue.setText("The patient has a problem with their: " + patientInfo[0]);
+	    		patSymp.setText("Symptoms: " + patientInfo[1]);
+
+	      }
+	    });
+				
+		doctorDiagnosis.add(patIssue);
+		doctorDiagnosis.add(patSymp);
+
+		
+		doctorDiagnosis.add(getPatient);
+		doctorDiagnosis.add(new JLabel("Patient Diagnosis:"));
+		doctorDiagnosis.add(diagnosis);
+	}
+	
+	private void setPatientInfo(String issue, String symptoms){
+		patientInfo[0] = issue;
+		patientInfo[1] = symptoms;
+	}
+	
+	private String[] getPatientInfo(){
+		return patientInfo;
 	}
 	
 	

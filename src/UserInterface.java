@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class UserInterface {
+	
+	String[] patientInfo = new String [2];
+	
 	public UserInterface(){
 		//Set up main frame
 		JFrame main = new JFrame("Super Doctor Connector");
@@ -54,6 +57,7 @@ public class UserInterface {
 		final JComboBox stateCB = new JComboBox(states);
 		final JComboBox areasCB = new JComboBox(areas);
 		final JTextField zipField = new JTextField();
+		final JTextField symptomsField = new JTextField();
 		final JTextArea doc = new JTextArea();
 		doc.setEditable(false);
 		final JTextArea diagnosis = new JTextArea();
@@ -62,7 +66,7 @@ public class UserInterface {
 		upper.add(new JLabel("I have a problem with my:"));
 		upper.add(areasCB);
 		upper.add(new JLabel("Please describe your sympoms below"));
-		upper.add(new JTextField());
+		upper.add(symptomsField);
 		upper.add(new JLabel("State:"));
 		upper.add(stateCB);
 		upper.add(new JLabel("Zip Code:"));
@@ -76,6 +80,9 @@ public class UserInterface {
 	    		Doctor d = dm.map.get(areasCB.getSelectedItem().toString().toLowerCase());
 	    		String s = d.toString();
 	    		doc.setText(s);
+	    		
+	    		setPatientInfo(areasCB.getSelectedItem().toString(), symptomsField.getText());
+
 	      }
 	    });
 		
@@ -140,8 +147,42 @@ public class UserInterface {
 
 	}
 	
-	private void createDoctorDiagnosisPanel(JPanel doctorDiagnosis) {
+private void createDoctorDiagnosisPanel(final JPanel doctorDiagnosis) {
 		
+		final JTextField diagnosis = new JTextField();
+
+		
+		JButton getPatient = new JButton("Get Patient");
+		final JTextField patIssue = new JTextField();
+		patIssue.setEditable(false);
+		final JTextField patSymp = new JTextField();
+		patSymp.setEditable(false);
+
+		
+		getPatient.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		patIssue.setText("The patient has a problem with their: " + patientInfo[0]);
+	    		patSymp.setText("Symptoms: " + patientInfo[1]);
+
+	      }
+	    });
+				
+		doctorDiagnosis.add(patIssue);
+		doctorDiagnosis.add(patSymp);
+
+		
+		doctorDiagnosis.add(getPatient);
+		doctorDiagnosis.add(new JLabel("Patient Diagnosis:"));
+		doctorDiagnosis.add(diagnosis);
+	}
+	
+	private void setPatientInfo(String issue, String symptoms){
+		patientInfo[0] = issue;
+		patientInfo[1] = symptoms;
+	}
+	
+	private String[] getPatientInfo(){
+		return patientInfo;
 	}
 	
 	

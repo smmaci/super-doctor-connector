@@ -14,7 +14,7 @@ public class UserInterface {
 		main.setSize(500, 500);
 		
 		//Set up patient panel
-		JPanel patientPanel = new JPanel(new GridLayout(6,1));
+		JPanel patientPanel = new JPanel(new GridLayout(2,1));
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
@@ -35,7 +35,8 @@ public class UserInterface {
 	 * 
 	 */
 	private void createPatientPanel(JPanel patientPanel){
-		//Creating the combo box for affected areas
+		JPanel upper = new JPanel(new GridLayout(4,1));
+		JPanel lower = new JPanel(new GridLayout(2,1));
 		
 		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
 		
@@ -44,10 +45,11 @@ public class UserInterface {
 		final JTextField doc = new JTextField();
 		doc.setEditable(false);
 		
-		patientPanel.add(new JLabel("I have a problem with my:"));
-		patientPanel.add(areasCB);
-		patientPanel.add(new JLabel("Please describe your sympoms below"));
-		patientPanel.add(new JTextField());
+		upper.add(new JLabel("I have a problem with my:"));
+		upper.add(areasCB);
+		upper.add(new JLabel("Please describe your sympoms below"));
+		upper.add(new JTextField());
+		patientPanel.add(upper);
 		JButton findDoctor = new JButton("Find a Doctor Now!");
 	    
 		findDoctor.addActionListener(new ActionListener() {
@@ -59,8 +61,9 @@ public class UserInterface {
 	      }
 	    });
 		
-		patientPanel.add(findDoctor);
-		patientPanel.add(doc);
+		lower.add(findDoctor);
+		lower.add(doc);
+		patientPanel.add(lower);
 	}
 	
 	private void createDoctorPanel(JPanel doctorPanel) {

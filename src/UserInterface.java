@@ -69,10 +69,20 @@ public class UserInterface {
 	    
 		findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		DoctorMap dm = new DoctorMap();
-	    		Doctor d = dm.map.get(areasCB.getSelectedItem().toString().toLowerCase());
-	    		String s = d.toString();
-	    		doc.setText(s);
+	    		DoctorList dl = new DoctorList();
+	    		//System.out.println(dl);
+	    		
+	    		String desiredField = areasCB.getSelectedItem().toString().toLowerCase();
+	    		String desiredState = stateCB.getSelectedItem().toString();
+	    		
+	    		Doctor d = new Doctor(dl.findDoctor(desiredField, desiredState));
+	    		System.out.println("Doctor name:" + d.getName());
+	    		if(d.getName() != "") {
+	    			doc.setText(d.toString());
+	    		} else {
+	    			doc.setText("No Doctors Found");
+	    		}
+	    		
 	      }
 	    });
 		
@@ -120,12 +130,13 @@ public class UserInterface {
 		
 		JButton addDoctor = new JButton("Add Doctor");
 		
+		//creates a doctor object and adds it to doctor map
 		addDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		DoctorMap dm = new DoctorMap();
-	    		dm.addDoctor(nameField.getText(), addressField.getText(), cityField.getText(), 
+	    		DoctorList dl = new DoctorList();
+	    		dl.addDoctor(new Doctor(nameField.getText(), addressField.getText(), cityField.getText(), 
 	    				stateCB.getSelectedItem().toString(), zipField.getText(), phoneField.getText(), 
-	    				specCB.getSelectedItem().toString());
+	    				specCB.getSelectedItem().toString()));
 	      }
 	    });
 		

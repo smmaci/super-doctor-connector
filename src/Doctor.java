@@ -30,10 +30,20 @@ public class Doctor {
 		field = f;
 	}
 	
+	public Doctor(Doctor other) {
+		this.name = other.name;
+		this.streetAddress = other.streetAddress;
+		this.city = other.city;
+		this.state = other.state;
+		this.zip = other.zip;
+		this.phoneNumber = other.phoneNumber;
+		this.field = other.field;
+	}
+	
 	public String toString() {
 		return ("Name: " + name + "\nAddress:\n\n	" + streetAddress +
 				"\n	" + city + ", " + state + " " + zip + "\n\nPhone Number: " + 
-				phoneNumber + "\nField: " + field);
+				phoneNumber + "\nField: " + field + "\n");
 	}
 	
 	public void viewSymptoms(){
@@ -42,6 +52,34 @@ public class Doctor {
 	
 	public void submitDiagnosis(){
 		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+	
+	public String getCity() {
+		return city;
+	}
+	
+	public String getState() {
+		return state;
+	}
+	
+	public String getZip() {
+		return zip;
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	
+	public String getField() {
+		return field;
 	}
 	
 }

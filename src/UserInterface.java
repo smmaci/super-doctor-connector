@@ -14,7 +14,7 @@ public class UserInterface {
 		main.setSize(500, 500);
 		
 		//Set up patient panel
-		JPanel patientPanel = new JPanel(new GridLayout(5,1));
+		JPanel patientPanel = new JPanel(new GridLayout(6,1));
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
@@ -41,20 +41,26 @@ public class UserInterface {
 		
 		final JComboBox areasCB = new JComboBox(areas);
 		
+		final JTextField doc = new JTextField();
+		doc.setEditable(false);
+		
 		patientPanel.add(new JLabel("I have a problem with my:"));
 		patientPanel.add(areasCB);
+		patientPanel.add(new JLabel("Please describe your sympoms below"));
 		patientPanel.add(new JTextField());
 		JButton findDoctor = new JButton("Find a Doctor Now!");
 	    
 		findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		DoctorMap dm = new DoctorMap();
-	    		System.out.println(dm.map.get(areasCB.getSelectedItem().toString().toLowerCase()));
+	    		Doctor d = dm.map.get(areasCB.getSelectedItem().toString().toLowerCase());
+	    		String s = d.toString();
+	    		doc.setText(s);
 	      }
 	    });
 		
 		patientPanel.add(findDoctor);
-		patientPanel.add(new JLabel("insert dr diagnosis here"));
+		patientPanel.add(doc);
 	}
 	
 	private void createDoctorPanel(JPanel doctorPanel) {

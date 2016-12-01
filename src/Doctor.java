@@ -43,7 +43,7 @@ public class Doctor {
 	public String toString() {
 		return ("Name: " + name + "\nAddress:\n	" + streetAddress +
 				"\n	" + city + ", " + state + " " + zip + "\n\nPhone Number: " + 
-				phoneNumber + "\nField: " + convertField(field.toLowerCase()) + "\n");
+				phoneNumber + "\nField: " + convertField() + "\n\n");
 	}
 	
 	public void viewSymptoms(){
@@ -54,8 +54,8 @@ public class Doctor {
 		
 	}
 	
-	private String convertField(String field) {
-		switch (field) {
+	private String convertField() {
+		switch (field.toLowerCase()) {
 			case "skin":	return "Dermatology";
 			case "arm":		return "Orthopedics";
 			case "head":	return "Neurology";

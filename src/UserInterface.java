@@ -87,10 +87,14 @@ public class UserInterface {
 	    		String desiredField = areasCB.getSelectedItem().toString().toLowerCase();
 	    		String desiredState = stateCB.getSelectedItem().toString();
 	    		
-	    		Doctor d = new Doctor(dm.findDoctor(desiredField, desiredState));
-	    		System.out.println("Doctor name:" + d.getName());
-	    		if(d.getName() != "") {
-	    			doc.setText(d.toString());
+	    		//Doctor d = new Doctor(dm.findDoctor(desiredField, desiredState));
+	    		ArrayList<Doctor> nearbyDrs = dm.findDoctor(desiredField, desiredState);
+	    		String nearbyDrsStr = "";
+	    		for(Doctor d : nearbyDrs) {
+	    			nearbyDrsStr += d.toString();
+	    		}
+	    		if(nearbyDrsStr != "") {
+	    			doc.setText(nearbyDrsStr);
 	    		} else {
 	    			doc.setText("No Doctors Found In " + stateCB.getSelectedItem().toString() + " Who Can Treat " + areasCB.getSelectedItem().toString() + " Issues");
 	    		}

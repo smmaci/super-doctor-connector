@@ -59,16 +59,16 @@ public class DoctorMap {
     	}        
 	} 
 	
-	public Doctor findDoctor(String field, String state) {
-		Doctor closeDr = new Doctor();
+	public ArrayList<Doctor> findDoctor(String field, String state) {
+		ArrayList<Doctor> nearbyDrs = new ArrayList<Doctor>();
 		for(int i = 0; i < dlist.size(); i++) {
 			Doctor d = dlist.get(i);
 			if((d.getField().equals(field)) && (d.getState().equals(state))) {
-				closeDr = new Doctor(d);
+				nearbyDrs.add(new Doctor(d));
 			}
 		}
 
-		return closeDr;
+		return nearbyDrs;
 	}
 	
 	public String toString() {

@@ -35,13 +35,19 @@ public class UserInterface {
 	 * 
 	 */
 	private void createPatientPanel(JPanel patientPanel){
-		JPanel upper = new JPanel(new GridLayout(4,1));
+		JPanel upper = new JPanel(new GridLayout(8,1));
 		JPanel lower = new JPanel(new GridLayout(2,1));
 		
 		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
+		String[] states = {"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", 
+				"Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", 
+				"Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", 
+				"North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", 
+				"Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"};
 		
+		final JComboBox stateCB = new JComboBox(states);
 		final JComboBox areasCB = new JComboBox(areas);
-		
+		final JTextField zipField = new JTextField();
 		final JTextField doc = new JTextField();
 		doc.setEditable(false);
 		
@@ -49,6 +55,10 @@ public class UserInterface {
 		upper.add(areasCB);
 		upper.add(new JLabel("Please describe your sympoms below"));
 		upper.add(new JTextField());
+		upper.add(new JLabel("State:"));
+		upper.add(stateCB);
+		upper.add(new JLabel("Zip Code:"));
+		upper.add(zipField);
 		patientPanel.add(upper);
 		JButton findDoctor = new JButton("Find a Doctor Now!");
 	    

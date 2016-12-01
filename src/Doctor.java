@@ -2,13 +2,13 @@ import java.lang.String;
 
 public class Doctor {
 	
-	private String name;
-	private String streetAddress;
-	private String city;
-	private String state;
-	private String zip;
-	private String phoneNumber;
-	private String field;
+	protected String name;
+	protected String streetAddress;
+	protected String city;
+	protected String state;
+	protected String zip;
+	protected String phoneNumber;
+	protected String field;
 	
 	public Doctor(){
 		name = "";

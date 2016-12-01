@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class UserInterface {
 	
 	String[] patientInfo = new String [2];
+	String diagnosis = "";
 	
 	public UserInterface(){
 		//Set up main frame
@@ -21,7 +22,7 @@ public class UserInterface {
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
-		JPanel doctorDiagnosisPanel = new JPanel(new GridLayout(15,1));
+		JPanel doctorDiagnosisPanel = new JPanel(new GridLayout(2,1));
 		createDoctorDiagnosisPanel(doctorDiagnosisPanel);
 		
 		//Set up doctor panel
@@ -60,8 +61,10 @@ public class UserInterface {
 		final JTextField symptomsField = new JTextField();
 		final JTextArea doc = new JTextArea();
 		doc.setEditable(false);
+		JScrollPane scrollDoc = new JScrollPane(doc);
 		final JTextArea diagnosis = new JTextArea();
 		diagnosis.setEditable(false);
+		JScrollPane scrollDiag = new JScrollPane(diagnosis);
 		
 		upper.add(new JLabel("I have a problem with my:"));
 		upper.add(areasCB);
@@ -96,9 +99,9 @@ public class UserInterface {
 	    });
 		
 		middle.add(findDoctor, BorderLayout.NORTH);
-		middle.add(doc, BorderLayout.CENTER);
+		middle.add(scrollDoc, BorderLayout.CENTER);
 		lower.add(new JLabel("Diagnosis:"), BorderLayout.NORTH);
-		lower.add(diagnosis, BorderLayout.CENTER);
+		lower.add(scrollDiag, BorderLayout.CENTER);
 		patientPanel.add(middle);
 		patientPanel.add(lower);
 	}
@@ -157,12 +160,18 @@ public class UserInterface {
 
 	}
 	
-private void createDoctorDiagnosisPanel(final JPanel doctorDiagnosis) {
+	private void createDoctorDiagnosisPanel(final JPanel doctorDiagnosis) {
+		
+	
+		JPanel upper = new JPanel(new GridLayout(4,1));
+		JPanel lower = new JPanel(new BorderLayout());
 		
 		final JTextField diagnosis = new JTextField();
+		JScrollPane scrollDiag = new JScrollPane(diagnosis);
 
 		
 		JButton getPatient = new JButton("Get Patient");
+		JButton sendDiagnosis = new JButton("Send Diagnosis");
 		final JTextField patIssue = new JTextField();
 		patIssue.setEditable(false);
 		final JTextField patSymp = new JTextField();
@@ -176,14 +185,24 @@ private void createDoctorDiagnosisPanel(final JPanel doctorDiagnosis) {
 
 	      }
 	    });
-				
-		doctorDiagnosis.add(patIssue);
-		doctorDiagnosis.add(patSymp);
-
 		
-		doctorDiagnosis.add(getPatient);
-		doctorDiagnosis.add(new JLabel("Patient Diagnosis:"));
-		doctorDiagnosis.add(diagnosis);
+		sendDiagnosis.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		
+	    		setDiagnosis(diagnosis.getText());
+
+	      }
+	    });
+				
+		upper.add(patIssue);
+		upper.add(patSymp);	
+		upper.add(getPatient);
+		upper.add(new JLabel("Patient Diagnosis:"));
+		doctorDiagnosis.add(upper);
+		
+		lower.add(scrollDiag, BorderLayout.CENTER);
+		lower.add(sendDiagnosis, BorderLayout.SOUTH);
+		doctorDiagnosis.add(lower);
 	}
 	
 	private void setPatientInfo(String issue, String symptoms){
@@ -195,5 +214,8 @@ private void createDoctorDiagnosisPanel(final JPanel doctorDiagnosis) {
 		return patientInfo;
 	}
 	
+	private void setDiagnosis(String diagnosis){
+		this.diagnosis = diagnosis;
+	}
 	
 }

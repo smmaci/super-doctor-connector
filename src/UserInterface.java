@@ -65,7 +65,7 @@ public class UserInterface {
 		
 		upper.add(new JLabel("I have a problem with my:"));
 		upper.add(areasCB);
-		upper.add(new JLabel("Please describe your sympoms below"));
+		upper.add(new JLabel("Please describe your symptoms below:"));
 		upper.add(symptomsField);
 		upper.add(new JLabel("State:"));
 		upper.add(stateCB);
@@ -77,8 +77,14 @@ public class UserInterface {
 		findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		DoctorMap dm = new DoctorMap();
-	    		Doctor d = dm.map.get(areasCB.getSelectedItem().toString().toLowerCase());
-	    		String s = d.toString();
+	    		String s = "No doctor near you.";
+	    		ArrayList<Doctor> l = dm.map.get(areasCB.getSelectedItem().toString().toLowerCase());
+	    		for(int i = 0; i < l.size(); i++)
+	    			if(l.get(i).state.equals(stateCB.getSelectedItem().toString()))
+	    			{
+	    				s = l.get(i).toString();
+	    				break;
+	    			}
 	    		doc.setText(s);
 	    		
 	    		setPatientInfo(areasCB.getSelectedItem().toString(), symptomsField.getText());

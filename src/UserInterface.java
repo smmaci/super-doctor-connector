@@ -41,7 +41,7 @@ public class UserInterface {
 	 */
 	private void createPatientPanel(JPanel patientPanel){
 		JPanel upper = new JPanel(new GridLayout(8,1));
-		JPanel lower = new JPanel(new GridLayout(2,1));
+		JPanel lower = new JPanel(new BorderLayout());
 		
 		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
 		String[] states = {"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", 
@@ -53,7 +53,7 @@ public class UserInterface {
 		final JComboBox stateCB = new JComboBox(states);
 		final JComboBox areasCB = new JComboBox(areas);
 		final JTextField zipField = new JTextField();
-		final JTextField doc = new JTextField();
+		final JTextArea doc = new JTextArea();
 		doc.setEditable(false);
 		
 		upper.add(new JLabel("I have a problem with my:"));
@@ -76,8 +76,8 @@ public class UserInterface {
 	      }
 	    });
 		
-		lower.add(findDoctor);
-		lower.add(doc);
+		lower.add(findDoctor, BorderLayout.NORTH);
+		lower.add(doc, BorderLayout.CENTER);
 		patientPanel.add(lower);
 	}
 	

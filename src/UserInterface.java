@@ -14,7 +14,7 @@ public class UserInterface {
 		main.setSize(500, 500);
 		
 		//Set up patient panel
-		JPanel patientPanel = new JPanel(new GridLayout(2,1));
+		JPanel patientPanel = new JPanel(new GridLayout(3,1));
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
@@ -41,6 +41,7 @@ public class UserInterface {
 	 */
 	private void createPatientPanel(JPanel patientPanel){
 		JPanel upper = new JPanel(new GridLayout(8,1));
+		JPanel middle = new JPanel(new BorderLayout());
 		JPanel lower = new JPanel(new BorderLayout());
 		
 		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
@@ -55,6 +56,8 @@ public class UserInterface {
 		final JTextField zipField = new JTextField();
 		final JTextArea doc = new JTextArea();
 		doc.setEditable(false);
+		final JTextArea diagnosis = new JTextArea();
+		diagnosis.setEditable(false);
 		
 		upper.add(new JLabel("I have a problem with my:"));
 		upper.add(areasCB);
@@ -76,8 +79,11 @@ public class UserInterface {
 	      }
 	    });
 		
-		lower.add(findDoctor, BorderLayout.NORTH);
-		lower.add(doc, BorderLayout.CENTER);
+		middle.add(findDoctor, BorderLayout.NORTH);
+		middle.add(doc, BorderLayout.CENTER);
+		lower.add(new JLabel("Diagnosis:"), BorderLayout.NORTH);
+		lower.add(diagnosis, BorderLayout.CENTER);
+		patientPanel.add(middle);
 		patientPanel.add(lower);
 	}
 	

@@ -64,6 +64,9 @@ public class Doctor {
 			case "chest":	return "Pulmonology";
 			case "neck":	return "Chiropractic";
 			case "throat":	return "Otolaryngologist";
+			case "eyes": 	return "Ophthalmologist";
+			case "feet":	return "podiatrist";
+			case "hand":	return "Orthopedics";
 			default:		return "General Physician";
 		}
 	}

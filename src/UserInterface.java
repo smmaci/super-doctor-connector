@@ -49,7 +49,7 @@ public class UserInterface {
 		JPanel middle = new JPanel(new BorderLayout());
 		JPanel lower = new JPanel(new BorderLayout());
 		
-		String[] areas = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
+		String[] areas = {"Arm", "Chest", "Eyes", "Feet", "Hand", "Head", "Heart", "Leg", "Lungs", "Neck", "Skin", "Stomach", "Throat", "Other"};
 		String[] states = {"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", 
 				"Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", 
 				"Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", 
@@ -126,7 +126,7 @@ public class UserInterface {
 	}
 	
 	private void createDoctorPanel(JPanel doctorPanel) {
-		String[] specialties = {"Skin", "Arm", "Head", "Leg", "Heart", "Chest", "Neck", "Throat", "Stomach", "Lungs"};
+		String[] specialties = {"Arm", "Chest", "Eyes", "Feet", "Hand", "Head", "Heart", "Leg", "Lungs", "Neck", "Skin", "Stomach", "Throat", "Other"};
 		
 		String[] states = {"Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", 
 				"Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", 

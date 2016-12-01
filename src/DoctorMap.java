@@ -21,7 +21,7 @@ public class DoctorMap {
 		map.put("Stomach", new Doctor("Harry Potter", "953 Stomach St", "123-345-678", "stomach"));
 		*/
 		
-		String name, addr, phone, field;
+		String name, stAddr, city, state, zip, phone, field;
 		
 		try
 		{
@@ -31,10 +31,14 @@ public class DoctorMap {
 			{
 				StringTokenizer tokens = new StringTokenizer(line,";");
 				name = tokens.nextToken();
-				addr = tokens.nextToken();
+				stAddr = tokens.nextToken();
+				city = tokens.nextToken();
+				state = tokens.nextToken();
+				zip = tokens.nextToken();
 				phone = tokens.nextToken();
 				field = tokens.nextToken().toLowerCase();
-				map.put(field, new Doctor(name, addr, phone, field));
+				
+				map.put(field, new Doctor(name, stAddr, city, state, zip, phone, field));
 				
 				line = bfr.readLine();
 			}
@@ -48,11 +52,11 @@ public class DoctorMap {
 
 	}
 	
-	public void addDoctor(String name, String address, String number, String field){
+	public void addDoctor(String name, String stAddress, String city, String state, String zip, String number, String field){
 		BufferedWriter bfw = null;
 		try {
 			bfw = new BufferedWriter(new FileWriter("doctors.txt", true));
-			bfw.write("\n" + name + ";" + address + ";" + number + ";" + field);
+			bfw.write("\n" + name + ";" + stAddress + ";" + city + ";" + state + ";" + zip + ";" + number + ";" + field);
 		} catch (IOException e) {
 			System.err.println("ERROR: " + e.getMessage());
 		}

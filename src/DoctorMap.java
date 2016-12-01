@@ -4,10 +4,10 @@ import java.io.*;
 
 public class DoctorMap {
 	
-	protected HashMap<String, Doctor> map;
+	protected HashMap<String, ArrayList<Doctor>> map;
 	
 	public DoctorMap() {
-		map = new HashMap<String, Doctor>();
+		map = new HashMap<String, ArrayList<Doctor>>();
 		
 		/*
 		map.put("Leg", new Doctor("John", "123 Leg Rd", "555-555-5555", "leg"));
@@ -38,7 +38,9 @@ public class DoctorMap {
 				phone = tokens.nextToken();
 				field = tokens.nextToken().toLowerCase();
 				
-				map.put(field, new Doctor(name, stAddr, city, state, zip, phone, field));
+				if(map.get(field) == null)
+					map.put(field, new ArrayList<Doctor>());
+				map.get(field).add(new Doctor(name, stAddr, city, state, zip, phone, field));
 				
 				line = bfr.readLine();
 			}

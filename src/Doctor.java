@@ -41,9 +41,9 @@ public class Doctor {
 	}
 	
 	public String toString() {
-		return ("Name: " + name + "\nAddress:\n\n	" + streetAddress +
+		return ("Name: " + name + "\nAddress:\n	" + streetAddress +
 				"\n	" + city + ", " + state + " " + zip + "\n\nPhone Number: " + 
-				phoneNumber + "\nField: " + field + "\n");
+				phoneNumber + "\nField: " + convertField(field.toLowerCase()) + "\n");
 	}
 	
 	public void viewSymptoms(){
@@ -52,6 +52,20 @@ public class Doctor {
 	
 	public void submitDiagnosis(){
 		
+	}
+	
+	private String convertField(String field) {
+		switch (field) {
+			case "skin":	return "Dermatology";
+			case "arm":		return "Orthopedics";
+			case "head":	return "Neurology";
+			case "leg":		return "Orthopedics";
+			case "heart":	return "Cardiology";
+			case "chest":	return "Pulmonology";
+			case "neck":	return "Chiropractic";
+			case "throat":	return "Otolaryngologist";
+			default:		return "General Physician";
+		}
 	}
 	
 	public String getName() {

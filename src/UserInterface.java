@@ -18,13 +18,18 @@ public class UserInterface {
 		createPatientPanel(patientPanel);
 		
 		//Set up doctor panel
+		JPanel doctorDiagnosisPanel = new JPanel(new GridLayout(15,1));
+		createDoctorDiagnosisPanel(doctorDiagnosisPanel);
+		
+		//Set up doctor panel
 		JPanel doctorPanel = new JPanel(new GridLayout(15,1));
 		createDoctorPanel(doctorPanel);
 		
 		//Set up tabbed pane
 		JTabbedPane tbpane = new JTabbedPane();
 		tbpane.addTab("Patient", patientPanel);
-		tbpane.addTab("Doctor", doctorPanel);
+		tbpane.addTab("Doctor Diagnosis", doctorDiagnosisPanel);
+		tbpane.addTab("Add Doctor", doctorPanel);
 		
 		//Add components to main frame
 		main.add(tbpane);
@@ -127,6 +132,10 @@ public class UserInterface {
 
 		doctorPanel.add(addDoctor);
 
+	}
+	
+	private void createDoctorDiagnosisPanel(JPanel doctorDiagnosis) {
+		
 	}
 	
 	

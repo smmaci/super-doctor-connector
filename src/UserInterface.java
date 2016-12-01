@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UserInterface {
 	
 	String[] patientInfo = new String [2];
-	String diagnosis = "";
+	String docPatDiag = "";
 	
 	public UserInterface(){
 		//Set up main frame
@@ -75,9 +75,11 @@ public class UserInterface {
 		upper.add(new JLabel("Zip Code:"));
 		upper.add(zipField);
 		patientPanel.add(upper);
+		
 		JButton findDoctor = new JButton("Find a Doctor Now!");
-	    
-		findDoctor.addActionListener(new ActionListener() {
+		JButton recieveDiagnosis = new JButton("Click Here For a Diagnosis");
+		
+	    findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		DoctorMap dm = new DoctorMap();
 	    		
@@ -89,7 +91,7 @@ public class UserInterface {
 	    		if(d.getName() != "") {
 	    			doc.setText(d.toString());
 	    		} else {
-	    			doc.setText("No Doctors Found");
+	    			doc.setText("No Doctors Found In " + stateCB.getSelectedItem().toString() + " Who Can Treat " + areasCB.getSelectedItem().toString() + " Issues");
 	    		}
 	    		
 	    		setPatientInfo(desiredField, symptomsField.getText());
@@ -97,11 +99,23 @@ public class UserInterface {
 
 	      }
 	    });
+	    
+		recieveDiagnosis.addActionListener(new ActionListener() {
+	    	public void actionPerformed(ActionEvent e) {
+	    		if (docPatDiag.equals("")){
+	    			diagnosis.setText("Please Wait For The Doctor To Send a Diagnosis");
+	    		}
+	    		else {
+	    			diagnosis.setText(docPatDiag);
+	    		}
+	      }
+	    });
 		
 		middle.add(findDoctor, BorderLayout.NORTH);
 		middle.add(scrollDoc, BorderLayout.CENTER);
 		lower.add(new JLabel("Diagnosis:"), BorderLayout.NORTH);
 		lower.add(scrollDiag, BorderLayout.CENTER);
+		lower.add(recieveDiagnosis, BorderLayout.SOUTH);
 		patientPanel.add(middle);
 		patientPanel.add(lower);
 	}
@@ -189,7 +203,7 @@ public class UserInterface {
 		sendDiagnosis.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		
-	    		setDiagnosis(diagnosis.getText());
+	    		docPatDiag = diagnosis.getText();
 
 	      }
 	    });
@@ -214,8 +228,6 @@ public class UserInterface {
 		return patientInfo;
 	}
 	
-	private void setDiagnosis(String diagnosis){
-		this.diagnosis = diagnosis;
-	}
+
 	
 }

@@ -44,6 +44,7 @@ public class UserInterface {
 	 * 
 	 */
 	private void createPatientPanel(JPanel patientPanel){
+		
 		JPanel upper = new JPanel(new GridLayout(8,1));
 		JPanel middle = new JPanel(new BorderLayout());
 		JPanel lower = new JPanel(new BorderLayout());
@@ -94,8 +95,8 @@ public class UserInterface {
 	    			doc.setText("No Doctors Found In " + stateCB.getSelectedItem().toString() + " Who Can Treat " + areasCB.getSelectedItem().toString() + " Issues");
 	    		}
 	    		
-	    		setPatientInfo(desiredField, symptomsField.getText());
-
+	    		patientInfo[0] = desiredField;
+	    		patientInfo[1] = symptomsField.getText();
 
 	      }
 	    });
@@ -180,7 +181,7 @@ public class UserInterface {
 		JPanel upper = new JPanel(new GridLayout(4,1));
 		JPanel lower = new JPanel(new BorderLayout());
 		
-		final JTextField diagnosis = new JTextField();
+		final JTextArea diagnosis = new JTextArea();
 		JScrollPane scrollDiag = new JScrollPane(diagnosis);
 
 		
@@ -217,17 +218,5 @@ public class UserInterface {
 		lower.add(scrollDiag, BorderLayout.CENTER);
 		lower.add(sendDiagnosis, BorderLayout.SOUTH);
 		doctorDiagnosis.add(lower);
-	}
-	
-	private void setPatientInfo(String issue, String symptoms){
-		patientInfo[0] = issue;
-		patientInfo[1] = symptoms;
-	}
-	
-	private String[] getPatientInfo(){
-		return patientInfo;
-	}
-	
-
-	
+	}	
 }

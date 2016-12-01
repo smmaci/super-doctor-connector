@@ -77,7 +77,7 @@ public class UserInterface {
 		findDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 
-	    		DoctorList dl = new DoctorList();
+	    		DoctorMap dl = new DoctorMap();
 	    		//System.out.println(dl);
 	    		
 	    		String desiredField = areasCB.getSelectedItem().toString().toLowerCase();
@@ -147,7 +147,7 @@ public class UserInterface {
 		//creates a doctor object and adds it to doctor map
 		addDoctor.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
-	    		DoctorList dl = new DoctorList();
+	    		DoctorMap dl = new DoctorMap();
 	    		dl.addDoctor(new Doctor(nameField.getText(), addressField.getText(), cityField.getText(), 
 	    				stateCB.getSelectedItem().toString(), zipField.getText(), phoneField.getText(), 
 	    				specCB.getSelectedItem().toString()));

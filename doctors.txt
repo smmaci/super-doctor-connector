@@ -1,17 +1,72 @@
 Bob;876 Skin Blvd;Oxford;Ohio;45056;123-456-7890;skin
-James;456 Arm Ave;Dublin;Ohio;43016;111-111-1111;arm
-Jim;789 Head St;Galena;Ohio;43021;222-222-2222;head
-John;123 Leg Rd;Homer;Ohio;43027;555-555-5555;leg
-Tom;179 Heart Blvd;Mingo;Ohio;43047;941-232-3432;heart
-Bilbo Baggins;264 Chest Ave;Newark;Ohio;43058;735-132-7777;chest
-Frodo;321 Neck St;Edison;Ohio;43320;842-462-9647;neck
-Gandalf;394 Throat Blvd;Mount Gilead;Ohio;43338;567-523-9752;throat
-Harry Potter;953 Stomach St;Lacarne;Ohio;43438;123-345-6781;stomach
-Timmeh TimTim;953 Stomach St;Custar;Ohio;43511;123-345-6781;lungs
-test;test St.;Delta;Ohio;43515;123-456-7890;Chest
-Mr. Neckman;Neckman st.;Colton;Ohio;43510;123-456-7890;Neck
+James;456 Arm Ave;Oxford;Ohio;45056;111-111-1111;arm
+Jim;789 Head St;Oxford;Ohio;45056;222-222-2222;head
+John;123 Leg Rd;Oxford;Ohio;45056;555-555-5555;leg
+Tom;179 Heart Blvd;Oxford;Ohio;45056;941-232-3432;heart
+Bilbo Baggins;264 Chest Ave;Oxford;Ohio;45056;735-132-7777;chest
+Frodo;321 Neck St;Oxford;Ohio;45056;842-462-9647;neck
+Gandalf;394 Throat Blvd;Oxford;Ohio;45056;567-523-9752;throat
+Harry Potter;953 Stomach St;Oxford;Ohio;45056;123-345-6781;stomach
+Timmeh TimTim;953 Stomach St;Oxford;Ohio;45056;123-345-6781;lungs
+test;test St.;Oxford;Ohio;45056;123-456-7890;Chest
+test2;test2 st.;Oxford;Ohio;45056;123-456-7890;Neck
 Zach Mc;18935 Tranor Rd.;Mount Vernon;Ohio;43050;142-573-9924;Heart
 Jason Street;Backtab Ave;New York;New York;10001;234-102-0931;Heart
 Kim Spam;193 spam Street;Braham;Minnesota;55006;234-456-2342;Head
 Frank Furt;193 Furt Street;Cannon Falls;Minnesota;55009;234-456-2342;Neck
 Tim Shamber;193 Sham Ave;Dalzell;South Carolina;29040;123-465-9999;Chest
+Dr. Nolan Harlan;53860 Main St;Anchorage;Alaska;99501;394-294-9987;Skin
+Dr. Norbert Aston;38486 Dirt Trail;Huntsville;Alabama;35801;769-284-9642;Skin
+Dr. Jephthah Rey;049 Grassy Knoll Dr;Little Rock;Arkansas;72201;544-654-9764;Skin
+Dr. Tessa Toft;5678 Ginger Ave;Sacramento;California;94203;123-748-3847;Skin
+Dr. Millie Stroud;56 First St;Beverly Hills;California;90210;986-346-2356;Skin
+Dr. Victor Frankenstein;0934 Frank Lane;Denver;Colorado;80201;094-869-0284;Skin
+Dr. Gonzo;960 Cactus St;Las Vegas;Nevada;89555;128-933-4444;Skin
+Dr. T.J. Eckleburg;235 Long St;New York;New York;10001;128-933-4444;Skin
+Dr. Henry Jekyll;0682 Hallow Ln;Davenport;Iowa;52801;097-236-8624;Skin
+Dr. Meredith Grey;284 Hospital St;Seattle;Washington;98000;097-236-8624;Skin
+Dr. Derek Shepherd;284 Hospital St;Seattle;Washington;98000;097-246-3587;Heart
+Dr. Cristina Yang;284 Hospital St;Seattle;Washington;98000;067-746-3756;Heart
+Dr. Jack Shephard;284 Hospital St;Honolulu;Hawaii;96802;869-275-8663;Heart
+Dr. Ronald Weasley;284 Hospital St;Littleton;Colorado;80120;869-275-8663;Heart
+Dr. Hermione Granger;284 Hospital St;Dover;Delaware;19904;968-295-3573;Heart
+Dr. Ginny Weasley;284 Hospital St;Dover;Delaware;19904;968-295-3573;Chest
+Dr. Draco Malfoy;284 Hospital St;Dover;Delaware;19904;968-295-3573;Chest
+Dr. Sirius Black;284 Hospital St;Pensacola;Florida;32501;968-295-3573;Chest
+Dr. Remus Lupin;284 Hospital St;Pensacola;Florida;32501;968-295-3573;Chest
+Dr. Cornelius Fudge;284 Hospital St;Pensacola;Florida;32501;920-267-3857;Head
+Dr. Hey You;284 Hospital St;Miami;Florida;33124;957-395-3844;Head
+Dr. Jordon Kuhn;315 Withrow St;Chicago;Illinois;60123;513-255-3324;Neck
+Dr. K Lyons;315 Michigan Ave;Chicago;Illinois;60124;513-239-9693;Neck
+Dr. JK Lyons;315 Michigan Ave;Chicago;Illinois;60124;513-239-9693;Neck
+Dr. Adrian Kimmett;0268 Neck St;New Orleans;Louisiana;70112;513-239-9693;Neck
+Dr. Alan Rickman;0268 Skin Place;Hartford;Connecticut;06101;555-123-4567;Skin
+Dr. Man Friday;0268 Skin Place;Hartford;Connecticut;06101;555-123-4567;Skin
+Dr. Javier Salas;0268 Skin Place;Atlanta;Georgia;30301;555-123-4567;Skin
+Dr. Jesus Salas;0268 Skin Place;Montpelier;Idaho;83254;555-123-4567;Skin
+Dr. Jason Bamford;0268 Skin Place;Springfield;Illinois;62701;555-123-4567;Skin
+Dr. Kurt Vonnegut;0268 Heart Trail;Indianapolis;Illinois;46201;555-123-4567;Heart
+Dr. Kurt Vonnegut Jr;0268 Heart Trail;Indianapolis;Illinois;46201;555-123-4567;Skin
+Dr. Helen Keller;0268 Defiance Trail;Wichita;Kansas;67201;555-123-4567;Skin
+Dr. Rachel Hankinson;0268 Defiance Trail;Hazard;Kentucky;41701;555-123-4567;Skin
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Skin
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Arm
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Head
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Leg
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Heart
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Neck
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Chest
+Dr. Johnny Depp;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Throat
+Dr. Katie Beckley;0268 Defiance Trail;Duluth;Minnesota;55801;555-123-4567;Throat
+Dr. Katie Beckley;0268 Defiance Trail;Boston;Massachusetts;02134;555-123-4567;Throat
+Dr. Albus Dumbledore;0268 Defiance Trail;Pinedale;Wyoming;02134;555-123-4567;Throat
+Dr. Albus Dumbledore;0268 Defiance Trail;Pinedale;Wyoming;02134;555-123-4567;Skin
+Dr. Albus Dumbledore;0268 Defiance Trail;Pinedale;Wyoming;02134;555-123-4567;Head
+Dr. Albus Dumbledore;0268 Defiance Trail;Pinedale;Wyoming;02134;555-123-4567;Heart
+Dr. Ben Gibbard;0268 Defiance Trail;Bellevue;Washington;98004;555-123-4567;Heart
+Dr. Greg Gibbs;0268 Defiance Trail;Chicago;Illinois;60125;555-123-4567;Heart
+Dr. Greg Gibbs;0268 Defiance Trail;Chicago;Illinois;60125;555-123-4567;Skin
+Dr. Greg Gibbs;0268 Defiance Trail;Chicago;Illinois;60125;555-123-4567;Throat
+Dr. Maranda Jordan;0268 Defiance Trail;New Orleans;Louisiana;60125;555-123-4567;Chest
+Dr. Maranda Jordan;0268 Defiance Trail;Austin;Texas;78701;555-123-4567;Chest
+Dr. Maranda Jordan;0268 Defiance Trail;Austin;Texas;78701;555-123-4567;Head
